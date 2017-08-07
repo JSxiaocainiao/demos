@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>menu</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	* {
+		padding: 0;
+		margin: 0;
+	}
+	ul {
+		list-style: none;
+	}
+	.menu {
+		width: 600px;
+	    background-color: #f1f1f1;
+	    margin: 10px auto;
+	    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+	}
+	.menu>ul>li {
+		display: inline-block;
+	}
+    .menu>ul>li>a{
+        text-decoration: none;
+        display: inline-block;
+        width: 40px;
+        text-align: center;
+        padding: 8px;
+        color:  #333;
+    }
+    a:hover {
+        background-color: #ccc;   
+        color:  #000;
+    }
+    .menu .more:hover .none{
+    	display: block;
+    }
+    .more ul{
+    	display: none;
+    	position: absolute;
+    	color: #000;
+    	background-color: #fff;
+    	width: 160px;
+    	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .none  li {
+    	display: block;
+    	width: 160px;
+    }
+    .none  li a {
+    	text-decoration: none;
+        display: inline-block;
+        width: 144px;
+        padding: 8px;
+        color:  #333;
+    }
+</style>
+</head>
+<body>
+    <div class="menu">
+    	<ul class="nav">
+    		<li>
+    			<a href="#">首页</a>
+    		</li>
+    		<li>
+    			<a href="#">作品</a>
+    		</li>
+    		<li class="more">
+    			<a href="#">更多</a>
+    			<ul class="none">
+    			    <li>
+    			    	<a href="#">Github</a>
+    			    </li>
+    			    <li>
+    			    	<a href="#">博客</a>
+    			    </li>
+    			    <li>
+    			    	<a href="#">知乎</a>
+    			    </li>
+    			</ul>
+    		</li>
+    	</ul>
+    </div>
+</body>
+</html>

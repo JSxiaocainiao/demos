@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>alert</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+    * {
+    	padding: 0;
+    	margin:  0;
+    }
+	.alert {
+		width: 600px;
+		height: 240px;
+		position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -300px;
+        margin-top: -120px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        color: #fff;
+	}
+	.alert header 
+	,.alert footer{
+		background-color:  #009688;
+		padding: 15px;
+	}
+	.alert header {
+		height: 32px;
+	}
+	.alert header p {
+		line-height: 32px;
+	}
+	.alert header span {
+		float: right;
+		margin-top: -5px ;
+		font-weight: bold;
+	}
+    .alert header:after{
+    	content: " ";
+    	display: block;
+    	clear: both;
+    }
+    .alert article {
+    	padding: 15px;
+    	height: 116px;
+    }
+    .alert article p{
+    	line-height: 55px;
+    	color: #000;
+
+    }
+</style>
+</head>
+<body>
+<h2>这是内容</h2>
+<h2>这是内容</h2>
+<h2>这是内容</h2>
+<div class="alert">
+   <header>
+   	  <span>x</span>
+   	  <h3>头部</h3>
+   </header>
+   <article>
+   	  <p>这是内容</p>
+   	  <p>这是内容</p>
+   </article>
+   <footer>
+   	  <p>尾部</p>
+   </footer>
+</div>
+</body>
+</html>

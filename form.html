@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>form</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+    * {
+    	padding:  0;
+    	margin:  0;
+    }
+    form {
+    	width: 600px;
+    	margin: 10px auto;
+    	background-color: #fff;
+    	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+	form header {
+		background-color:  #009688;
+		color:  #fff;
+		padding: 15px 16px;
+	}
+	form ul {
+		margin: 15px 8px;
+		list-style:  none;
+	}
+	form li {
+        margin: 8px;
+        padding: 3px;
+	}
+	form ul li:nth-child(2n) {
+		border-bottom: 1px solid #ccc;        
+	}
+	form ul label {
+		color:#757575;
+	}
+	form input[type="text"]
+    ,form textarea {
+		border: 0;
+		width: 100%;
+		outline: none;
+	}
+    .checkbox {
+    	float: left;
+    	color: #757575;
+    	line-height: 1.4;
+    }
+    .radio {
+    	float: left;
+    	margin-left: 45%;
+    	color: #757575;
+    	line-height: 1.4;
+    }
+    .checkbox input[type="checkbox"]
+    ,.radio input[type="radio"]{
+    	margin: 4px;
+    }
+	form button {
+		background-color: #009688;
+		padding:  8px 16px;
+		border:  0;
+		margin: 16px;
+		color: #fff;
+		margin-bottom: 35px;
+	}
+    ul li:last-child:after{
+    	content: " ";
+    	width: 0;
+    	height:  0;
+    	font-size:  0;
+    	display: block;
+    	clear: both;
+    	margin-top: 10px;
+    }
+    textarea {
+    	height: 80px;
+    }
+</style>
+</head>
+<body>
+<form action="" method="get">
+	<header>
+		<h3>信息收集表</h3>
+	</header>
+	<ul>
+		<li>
+			<label for="name">姓名</label>
+		</li>
+		<li>
+			<input type="text" id="name">
+		</li>
+		<li>
+			<label for="QQ">QQ</label>
+		</li>
+		<li>
+			<input type="text" id="QQ">
+		</li>
+		<li>
+			<label for="text">要说的话</label>
+		</li>
+		<li>
+			<textarea row="4" cols="30" id="text"></textarea>
+		</li>
+		<li>
+		    <div class="checkbox">
+			<input type="checkbox" name="thing" value="milk" checked="checked">Milk<br/>
+			<input type="checkbox" name="thing" value="sugar">Sugar<br/>
+			<input type="checkbox" name="thing" value="Lemon">Lemon 
+			</div>
+			<div class="radio">
+			<input type="radio" name="male" value="male" checked="checked">Male<br/>
+			<input type="radio" name="male" value="female">Female<br/>
+			</div>			
+		</li>
+	</ul>
+	<button type="submit">提交</button>
+</form>
+</body>
+</html>
