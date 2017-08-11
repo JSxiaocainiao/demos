@@ -1,0 +1,60 @@
+<charset="utf-8">
+* {
+	padding: 0;
+	margin: 0;
+}
+body {
+	min-width: 1080px;
+	margin: 0 auto;
+	background-color: #fff2e3;
+}
+a {
+	text-decoration: none;
+	cursor: pointer;
+}
+.ct {
+	margin:  0 auto;
+	padding: 10px;
+	text-align: center;
+	color:  #fff;
+}
+.margin {
+	margin: 18px auto;
+}
+.ct h1 {
+   color: #87968e;
+   font-size: 42px;
+}
+.ct .introduce {
+	color: #b7bbb0;
+	font-size: 14px;
+}
+.ct .project {
+    padding: 10px;
+}
+.ct img {
+	display: block;
+}
+.ct .use {
+   padding: 10px;
+}
+.project a,
+.use a {
+	display: inline-block;
+	padding: 7px;
+	margin: 5px 10px;
+	text-align: center;
+	border-radius: 5px;
+	background-color: #72b890;
+}
+a:hover {
+	background-color: #aacfb1;
+}
+.ct .author {
+	color: #ccc;
+	font-size: 14px;
+}
+.ct .author a{
+	color: #aacfb1;
+	font-size: 14px;
+}
