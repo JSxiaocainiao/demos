@@ -1,0 +1,175 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2017-08-15 15:22:47
+ * @version $Id$
+ */
+* {
+	padding: 0;
+	margin: 0;
+}
+body {
+	width: 1020px;
+	margin: 0 auto;
+}
+h3 {
+	font-size: ;
+}
+a {
+	color: #fff;
+	text-decoration: none;
+}
+ul {
+	list-style: none;
+}
+.clearfix::after {
+	display: block;
+	content: "";
+	clear: both;
+}
+/* 头部 */
+header {
+	padding: 10px;
+	background: url("task15/pic1.jpg") no-repeat ;
+	background-size: cover;
+	height: 650px;
+	text-align: center;
+}
+header>h3 {
+	font-size: 35px;
+	color: #fff;
+	margin-top: 220px;
+}
+header>p {
+	font-size: 55px;
+	color: #000;
+	margin-top: 20px;
+}
+header>a {
+	display: inline-block;
+	width: 150px;
+	height: 30px;
+	background-color: #fed136;
+	padding: 10px;
+	text-align: center;
+	font-size: 20px;
+	color: #fff;
+	border-radius: 8px;
+	margin-top: 20px;
+}
+header>nav {
+	display: flex;
+	height: 70px;
+	justify-content: space-between;
+	align-items: center;
+}
+header>nav>a {
+	color: #fed136;
+	font-size: 35px;
+}
+header>nav>ul {
+	margin-right: 10px;
+}
+header>nav>ul li {
+	display: inline-block;
+	text-align: center;
+	padding: 20px 10px;
+}
+header>nav>ul li a:hover {
+	color: #fed136;
+}
+/* services */
+#services,
+#portfolio,
+#about,
+#team,
+#contact {
+	text-align: center;
+	padding: 20px;
+	height: 700px;
+}
+#services>h3,
+#portfolio>h3,
+#about>h3,
+#team>h3,
+#contact>h3 {
+	font-size: 35px;
+	margin-top: 60px;
+}
+#services>p,
+#portfolio>p,
+#about>p,
+#team>p,
+#contact>p {
+	font-size: 14px;
+	color: #ccc;
+	margin-top: 20px;
+}
+#services>.img-wrap {
+	width: 260px;
+	margin: 30px;
+	margin-top: 140px;
+	box-sizing: border-box;
+	float: left;
+	text-align: center;
+}
+#services>.img-wrap img {
+	width: 260px;
+	height: 230px;
+}
+#services>.img-wrap p {
+	margin: 30px 0;
+	line-height: 30px;
+}
+#portfolio {
+	background-color: #f7f7f7;
+	height: auto;
+}
+#portfolio>ul {
+	margin-top: 45px;
+}
+#portfolio>ul li{
+	width: 260px;
+	margin: 30px;
+	margin-top: 70px;
+	box-sizing: border-box;
+	float: left;
+	text-align: center;
+	border: 1px solid #fff;
+	background-color: #fff;
+	position: relative;
+}
+#portfolio>ul img {
+	width: 260px;
+	height: 230px;
+	cursor: pointer;
+}
+#portfolio>ul img:hover {
+	background-color: red;
+}
+#portfolio>ul h3 {
+	font-size: ;
+	margin: 15px;
+}
+#portfolio>ul p {
+	margin: 15px 0;
+	line-height: 25px;
+	color: #ccc;
+}
+#portfolio .hover {
+	position: absolute;
+	width: 260px;
+	height: 230px;
+	top: 0;
+	padding-top: 50px;
+	box-sizing: border-box;
+	font-size: 85px;
+	color: #fff;
+	display: none;
+	background: rgba(254, 209, 54, .7);
+	z-index: 1;
+}
+#portfolio li:hover>.hover {
+	display: block;
+}
