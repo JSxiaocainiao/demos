@@ -4,7 +4,7 @@
 	margin: 0;
 }
 body {
-	min-width: 980px;
+	width: 880px;
 	margin: 0 auto;
 }
 .clearfix::after {
