@@ -275,7 +275,7 @@ header>nav>ul li a:hover {
 	color: #ccc;
 }
 #team>ul>li>ul {
-	padding: 40px;
+	padding: 10px 60px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -296,7 +296,7 @@ header>nav>ul li a:hover {
 }
 #team>p {
 	width: 700px;
-	margin: 50px auto;
+	margin: 30px auto;
 }
 #contact {
 	background: url("task15/pic2.jpg") no-repeat;
