@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+  * {
+  	padding: 0;
+  	margin: 0;
+  }
+  ul {
+  	list-style: none;
+  }
+  .contain {
+  	margin: 20px;
+  }
+  .contain .tabs {
+  	display: flex;
+  }
+  .contain .tabs li {
+  	box-sizing: border-box;
+  	width: 60px;
+  	border: 1px solid #000;
+  	border-right: none;
+  	border-bottom: none;
+  	text-align: center;
+  	padding: 3px;
+  }
+  .contain .tabs li:last-child {
+  	border-right: 1px solid #000;
+  }
+  .contain .tabs .active {
+  	background-color:  #ccc;
+  }
+  .contain .content {
+  	box-sizing: border-box;
+  	width: 180px;
+  	height: 100px;
+  	border: 1px solid #000;
+  	padding: 5px;
+  }
+  .contain .content li {
+  	display: none;
+  }
+  .contain .content .active {
+  	display: block;
+  }
+</style>
+</head>
+<body>
+  <div class="contain">
+  	<ul class="tabs">
+  		<li class="active">标题1</li>
+  		<li>标题2</li>
+  		<li>标题3</li>
+  	</ul>
+  	<ul class="content">
+  		<li class="active">内容1</li>
+  		<li>内容2</li>
+  		<li>内容3</li>
+  	</ul>
+  </div>
+  <script>
+  	var tabs = document.querySelectorAll('.contain .tabs li');
+  	var content = document.querySelectorAll('.contain .content li');
+  	tabs.forEach(function(tab){
+  		tab.addEventListener('click',function(){
+  			tabs.forEach(function(node){
+  				node.classList.remove('active');
+  			})
+  			this.classList.add('active');
+  			var index = [].indexOf.call(tabs,this);
+  			content.forEach(function(node){
+  				node.classList.remove('active');
+  			})
+  			content[index].classList.add('active');
+  			
+  		})
+  	})
+  </script>    
+</body>
+
+</html>
