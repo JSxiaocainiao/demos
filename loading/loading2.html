@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>loading more</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  ul {
+    list-style: none;
+  }
+  li {
+    margin: 20px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  #loading {
+    display: block;
+    text-align: center;
+    padding: 8px;
+    margin: 0 auto;
+    width: 80px;
+    border: 1px solid orangered;
+    border-radius: 5px;
+    color: orangered;
+    text-decoration: none;
+  }
+  li:hover,#loading:hover {
+    background: lightgreen;
+  }
+
+</style>
+</head>
+<body>
+  <ul id="news">
+     </ul>
+  <a id="loading" href="javascript:void(0)">加载更多</a>  <!-- 地址设置为undefined,不会刷新页面 -->
+</body>
+  <script>
+     var botton = document.querySelector('a');
+     var ul = document.querySelector('#news');
+     var pageIndex = 0;        //参数 Index
+     var lock = true;                 //状态锁 防止用户重复点击
+     botton.addEventListener('click',function(e){
+        //e.preventDefault();
+     	var xhr = new XMLHttpRequest();
+        if(!lock){
+            return;
+        }
+     	xhr.onreadystatechange = function(){
+     		if(xhr.readyState === 4){
+                if(xhr.status === 200|| xhr.status ===304){
+     			var news = JSON.parse(xhr.responseText);
+     			for(var i=0;i<news.length;i++){
+     				var lis = document.createDocumentFragment();
+     				var li = document.createElement('li');
+     				li.innerText = news[i];
+     				lis.append(li);
+     				ul.append(lis);
+     		    }
+                pageIndex +=5;
+              }else{
+                console.log('出错了')
+              }
+                lock = true;
+     		}
+     	}
+
+     	xhr.open('get','/loadingmore?index='+pageIndex+'&length=5',true);
+     	xhr.send();
+        lock = false;
+     })
+  </script>
+</html>
