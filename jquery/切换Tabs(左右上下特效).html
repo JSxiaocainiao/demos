@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>左右上下切换</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+  * {
+  	padding: 0;
+  	margin: 0;
+  }
+  section {
+  	margin: 20px;
+  }
+  ul {
+  	list-style: none;
+  }
+  .tabs {
+  	box-sizing: border-box;
+  	width: 662px;
+  	display: flex;
+  	border-right: 1px solid #000;
+  }
+  .tabs li {
+  	box-sizing: border-box;
+  	width: 33.33%;
+  	text-align: center;
+  	padding: 10px;
+  	cursor: pointer;
+  	border: 1px solid #000;
+  	border-bottom: none;
+  	border-right: none;
+  }
+  .tabs li.hover {
+  	background-color: #ccc;
+  }
+  .content-wrap {
+  	box-sizing: border-box;
+  	border: 1px solid #000;
+  	width: 662px;
+  	height: 300px;
+  	position: relative;
+  	overflow: hidden;
+  }
+  .content-wrap ul {
+  	box-sizing: border-box;
+  	width: 1980px;
+    height: 300px;
+  	position: absolute;
+  	left: 0;
+  }
+  .content-wrap ul li {
+  	box-sizing: border-box;
+  	height: 300px;
+    width: 660px;
+    float: left;
+  }
+  .content-wrap ul li:nth-child(1) {
+  	background-color: red;
+  }
+  .content-wrap ul li:nth-child(2) {
+  	background-color: seagreen;
+  }
+  .content-wrap ul li:nth-child(3) {
+  	background-color: lightyellow;
+  }
+
+  .content-wrap1 {
+  	box-sizing: border-box;
+  	border: 1px solid #000;
+  	width: 662px;
+  	height: 302px;
+  	position: relative;
+  	overflow: hidden;
+  }
+  .content-wrap1 ul {
+  	box-sizing: border-box;
+    height: 300px;
+  	position: absolute;
+  	top: 0;
+  }
+  .content-wrap1 ul li {
+  	box-sizing: border-box;
+  	height: 300px;
+    width: 660px;
+  }
+  .content-wrap1 ul li:nth-child(1) {
+  	background-color: red;
+  }
+  .content-wrap1 ul li:nth-child(2) {
+  	background-color: seagreen;
+  }
+  .content-wrap1 ul li:nth-child(3) {
+  	background-color: lightyellow;
+  }
+
+
+</style>
+</head>
+<body>
+  <section>
+  	<ul class="tabs">
+  		<li>news1</li>
+  		<li>news2</li>
+  		<li>news3</li> 
+  	</ul>
+  	<div class="content-wrap">
+  	 <ul> 
+  		<li>content1</li>
+  		<li>content2</li>
+  		<li>content3</li>
+  	</ul>
+  </div>
+  </section>
+
+  <section>
+  	<ul class="tabs">
+  		<li>news1</li>
+  		<li>news2</li>
+  		<li>news3</li> 
+  	</ul>
+  	<div class="content-wrap1">
+  	 <ul> 
+  		<li>content1</li>
+  		<li>content2</li>
+  		<li>content3</li>
+  	</ul>
+  </div>
+  </section>
+  <script src="jquery.min.js"></script>
+  <script>
+  	$('.tabs>li').on('click',function(){
+  		$(this).addClass('hover').siblings().removeClass('hover');
+  		var index = $(this).index();
+  		var width = $('.content-wrap').width();
+  		$(this).parents('section').find('.content-wrap>ul').animate({left:-width*index});
+  	})
+  	$('.tabs>li').on('click',function(){
+  	$(this).addClass('hover').siblings().removeClass('hover');
+    	var index = $(this).index();
+     	var height = $('.content-wrap1').height();
+    	$(this).parents('section').find('.content-wrap1>ul').animate({top:-height*index});
+   	 })
+
+  </script>
+    
+</body>
+</html>

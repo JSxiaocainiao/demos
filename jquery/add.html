@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>jq tabs</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+ * {
+  padding: 0;
+  margin: 0;
+ }
+ section {
+ 	color: #ccc;
+ }
+ ul {
+ 	list-style: none;
+ } 
+ li {
+ 	cursor: pointer;
+ }
+ section.sale {
+ 	width: 865px;
+ 	margin: 20px;
+ }
+ section h2 {
+	font-size: 25px;
+	margin: 10px;
+ }
+ section .sale-wrap {
+ 	box-sizing: border-box;
+ }
+ section .sale-list {
+    width: 865px;
+    overflow: hidden;
+ }
+ section .sale-list>li {
+ 	float: left;
+ 	box-sizing: border-box;
+ 	width: 255px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    position: relative;
+ } 
+
+ section .sale-list>li .none-wrap {
+ 	display: none;
+    position: absolute;
+    width: 253px;
+    height: 100%;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    text-align: center;
+    padding-top: 100px;
+
+ }
+ section .sale-list>li .none-wrap p {
+    border: 1px solid indianred;
+    padding: 10px;
+    display: inline-block;
+ }
+  section .sale-list>li:hover .none-wrap {
+  	display: block;
+  }
+  section .sale-list>li img {
+  	width: 220px;
+  	display: block;
+  	margin: 10px auto;
+  }
+  section .sale-list>li p {
+  	margin: 20px 0;
+  }
+  section .sale-list>li p:last-child {
+  	color: red;
+  }
+  section button {
+  	padding: 10px;
+  	margin: 10px;
+  	width: 60px;
+  }
+  section .active {
+  	display: block;
+  }
+  section .none {
+  	display: none;
+  }
+  section .hover {
+  	background-color: indianred;
+  }
+
+</style>
+</head>
+<body>
+	<section class="sale">
+		<h2>商品列表</h2>
+		<div class="sale-wrap">
+	    <ul class="sale-list">
+            <li>
+            	<img src="images/phone1.jpg" alt="salePic">
+            	<p>这是一个商品</p>
+            	<p>$100</p> 
+            	<div class="none-wrap">
+            		<p>立即抢购</p>
+            	</div>
+            </li>
+            <li>
+            	<img src="images/phone1.jpg" alt="salePic">
+            	<p>这是一个商品</p>
+            	<p>$100</p> 
+            	<div class="none-wrap">
+            		<p>立即抢购</p>
+            	</div>
+            </li>
+            <li>
+            	<img src="images/phone1.jpg" alt="salePic">
+            	<p>这是一个商品</p>
+            	<p>$100</p> 
+            	<div class="none-wrap">
+            		<p>立即抢购</p>
+            	</div>
+            </li>
+            <li>
+            	<img src="images/phone1.jpg" alt="salePic">
+            	<p>这是一个商品</p>
+            	<p>$100</p> 
+            	<div class="none-wrap">
+            		<p>立即抢购</p>
+            	</div>
+            </li>
+            <li>
+            	<img src="images/phone1.jpg" alt="salePic">
+            	<p>这是一个商品</p>
+            	<p>$100</p> 
+            	<div class="none-wrap">
+            		<p>立即抢购</p>
+            	</div>
+            </li>
+            <li>
+            	<img src="images/phone1.jpg" alt="salePic">
+            	<p>这是一个商品</p>
+            	<p>$100</p> 
+            	<div class="none-wrap">
+            		<p>立即抢购</p>
+            	</div>
+            </li>
+	    </ul>
+	    
+	    <button id="addData">添加</button>
+	</div>
+		
+	</section>
+    
+    <script src="jquery.min.js"></script>
+    <script>
+    var products = [
+	{
+		img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+		name: '珂兰 黄金手 猴哥款',
+		price: '￥405.00'
+	},{
+		img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+		name: '珂兰 黄金转运珠 猴哥款',
+		price: '￥100.00'
+	},{
+		img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+		name: '珂兰 黄金手链 3D猴哥款',
+		price: '￥45.00'
+	}
+    ];
+    function toHTML(data){
+    	var html = '';
+    	html += '<li>'+'<img src='+data.img+' alt="pic">';
+    	html += '<p>'+data.name+'</p>';
+    	html += '<p>'+data.price+'</p>';
+    	html += '<div class="none-wrap"><p>立即抢购</p></div>';
+    	html += '</li>';
+    	return html;
+    }
+    $('#addData').on('click',products,function(){
+       $.each(products,function(index,data){   //$.each 遍历
+        var html = toHTML(data);
+       	$('.sale-list').append(html);
+       })
+    })
+
+    </script>
+</body>
+</html>
