@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>jlazyloading</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<style>
+  ul {
+  	list-style: none;
+  	margin: 0 auto;
+  	width: 680px;
+  }
+  li {
+  	display: inline-block;
+  	width: 280px;
+  	height: 200px;
+  	margin: 25px;
+  }
+  ul li img{
+  	width: 280px;
+  	height: 200px;
+  	border: none;
+  }
+</style>
+<body>
+	<ul>
+	    <li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://img.ivsky.com/img/tupian/t/201708/08/jixuedeshanfengtupian.jpg"></a></li>
+		<li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://img.ivsky.com/img/tupian/t/201708/08/jixuedeshanfengtupian-001.jpg"></a></li>
+		<li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://img.ivsky.com/img/tupian/t/201708/08/jixuedeshanfengtupian-002.jpg"></a></li>
+		<li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://img.ivsky.com/img/tupian/t/201708/08/jixuedeshanfengtupian-003.jpg"></a></li>
+		<li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://img.ivsky.com/img/tupian/t/201708/08/jixuedeshanfengtupian-004.jpg"></a></li>
+		<li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://img.ivsky.com/img/tupian/t/201708/08/jixuedeshanfengtupian-005.jpg"></a></li>
+		<li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://img.ivsky.com/img/tupian/t/201708/08/jixuedeshanfengtupian-006.jpg"></a></li>
+		<li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://img.ivsky.com/img/tupian/t/201708/08/jixuedeshanfengtupian-007.jpg"></a></li>
+		<li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://img.ivsky.com/img/tupian/t/201708/08/jixuedeshanfengtupian-008.jpg"></a></li>
+		<li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://img.ivsky.com/img/tupian/t/201708/08/jixuedeshanfengtupian-009.jpg"></a></li>
+		<li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://img.ivsky.com/img/tupian/t/201708/08/jixuedeshanfengtupian-010.jpg"></a></li>
+		<li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://img.ivsky.com/img/tupian/t/201708/08/jixuedeshanfengtupian-001.jpg"></a></li>
+		<li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://img.ivsky.com/img/tupian/t/201708/08/jixuedeshanfengtupian-002.jpg"></a></li>
+		<li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://img.ivsky.com/img/tupian/t/201708/08/jixuedeshanfengtupian-003.jpg"></a></li>
+		<li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://img.ivsky.com/img/tupian/t/201708/08/jixuedeshanfengtupian-004.jpg"></a></li>
+		<li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://img.ivsky.com/img/tupian/t/201708/08/jixuedeshanfengtupian-005.jpg"></a></li>
+		<li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://img.ivsky.com/img/tupian/t/201708/08/jixuedeshanfengtupian-006.jpg"></a></li>
+		<li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://img.ivsky.com/img/tupian/t/201708/08/jixuedeshanfengtupian-007.jpg"></a></li>
+		<li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://img.ivsky.com/img/tupian/t/201708/08/jixuedeshanfengtupian-008.jpg"></a></li>
+		<li><a href="#"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-src="http://img.ivsky.com/img/tupian/t/201708/08/jixuedeshanfengtupian-001.jpg"></a></li>
+	</ul>
+
+
+<script src="javascripts/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script>
+
+   
+    var $img = $('ul>li img');
+    var clock;
+    lazingLoad();
+
+    
+    $(window).on('scroll',function(){
+    if(clock){
+    	clearTimeout(clock);
+    }
+    clock = setTimeout(function(){
+    	lazingLoad();
+    },300)      //加状态锁节约性能
+    	
+    })
+    function lazingLoad(){
+    	console.log(1);
+    	  	//1.判断是否在肉眼中 2.是否加载过
+        $img.each(function(){
+    	if( onShow($(this)) && !checkLoad($(this))){
+    		load($(this));
+    	}})
+    }
+    function onShow($img){
+    	var $imgheight = $img.offset().top;
+    	var height =  $(window).height();
+    	var scrollHeight = $(window).scrollTop();
+        if($imgheight < height  + scrollHeight && $imgheight > scrollHeight){
+               return true;
+        }
+        return false;
+    }
+    function checkLoad($img){
+        return $img.attr('src') === $img.attr('data-src');
+    }
+    function load($img){
+    	$img.attr('src',$img.attr('data-src'));
+    }
+   </script>
+</body>
+</html>
