@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>轮播</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<style>
+	* {
+		padding: 0;
+		margin: 0;
+	}
+	ul {
+		list-style: none;
+	}
+	.wrap {
+		width: 400px;
+		height: 234px;
+		margin: 30px auto;
+		overflow: hidden;
+		position: relative;	
+	}
+	.img-ct {
+		position: absolute;	
+	}
+    .img-ct>li {
+        position: absolute;
+        opacity: 0;
+    }
+    .img-ct>li img{
+        width: 400px;
+        height: 230px;
+    }
+    .wrap .on {
+    	width: 100%;
+    	position: absolute;
+    	bottom: 10px;
+        text-align: center;
+        z-index: 2;
+    }
+    .wrap .on>li {
+    	display: inline-block;
+    	width: 30px;
+    	height: 8px;
+    	margin: 8px;
+    	border: 1px solid #000;
+    	border-radius: 5px;
+    	cursor: pointer;
+    }
+    .wrap .on li.active {
+    	background-color: #ccc;
+    }
+    .wrap .arrow {
+    	font-size: 28px;
+    	box-sizing: border-box;
+    	position: absolute;
+    	top: 50%;
+        width: 42px;
+        height: 42px; 
+        text-align: center;       
+        border: 1px solid;
+        border-radius: 50%;
+    	margin-top: -21px; 
+    	z-index: 2;
+    	cursor: pointer;
+    }
+    .wrap .arrow.arrow-left {
+    	left: 30px;
+    }
+    .wrap .arrow.arrow-right {
+    	right: 30px;
+    }
+
+</style>
+<body>
+    <div class="wrap">
+    	<ul class="img-ct">
+    		<li><a href="#"><img src="http://img.ivsky.com/img/tupian/t/201708/08/jixuedeshanfengtupian-001.jpg"></a></li>
+    		<li><a href="#"><img src="http://img.ivsky.com/img/tupian/t/201708/08/jixuedeshanfengtupian-002.jpg"></a></li>
+    		<li><a href="#"><img src="http://img.ivsky.com/img/tupian/t/201708/08/jixuedeshanfengtupian-003.jpg"></a></li>
+    		<li><a href="#"><img src="http://img.ivsky.com/img/tupian/t/201708/08/jixuedeshanfengtupian-004.jpg"></a></li>
+    	</ul>
+    	<ul class="on">
+    		<li class="active"></li>
+    		<li></li>
+    		<li></li>
+    		<li></li>
+    	</ul>
+    	<div class="arrow arrow-left"><</div>
+    	<div class="arrow arrow-right">></div>
+    </div>
+    <script  src="http://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+    <script>
+    	var len = $('.img-ct>li').length;
+    	var width = $('img').eq(0).width();
+    	var $ct = $('.img-ct');
+    	var $img = $('.img-ct>li')
+    	var $nextImg = $('.arrow-right');
+    	var $preImg = $('.arrow-left'); 
+    	var $imgBotton = $('.on>li');
+    	var index = 0;
+    	var lock = false;
+    	$ct.width( len*width)
+    	play(0);
+        autoPlay();
+    	$nextImg.on('click',function(){
+           nextPic();
+    	})
+    	$preImg.on('click',function(){
+           prePic();
+    	})
+    	$imgBotton.on('click',function(){
+            var buttonIndex = $(this).index();
+    		play(buttonIndex);
+    	})
+    	function nextPic(){
+    		play((index+1) % len);
+    	}
+    	function prePic(){
+    		play((index+len-1) % len);
+    	}
+    	function autoPlay(){
+    		setInterval(nextPic,2500)
+    	}
+    	function play(idx){
+    		if(false){
+    			return;
+    		}
+    		lock = true;
+    		$img.eq(index).animate({opacity:0},800);
+    		$img.eq(idx).animate({opacity:1},800,function(){
+    			lock = false;
+    		});
+    		index = idx;
+            setButton();
+    	}
+    	function setButton(){
+    		$imgBotton.removeClass('active').eq(index).addClass('active');
+    	}
+    	
+    	//setInterval(function(){nextPic(1)},500);
+    	
+		// //$(function(){
+			
+		// 	var $ct = $('.img-ct'),
+		// 		$items = $ct.children(),
+		// 		$pre = $('.pre'),
+		// 		$next = $('.next'),
+		// 		$bullet = $('.bullet'),
+		// 		imgWidth = $items.width(),
+		// 		imgCount = $ct.children().size();
+
+
+
+		// 	var curIdx = 0;
+		// 	var isAnimate = false;
+
+		// 	$next.on('click', function(){
+		// 		playNext();
+		// 	});
+		// 	$pre.on('click', function(){
+		// 		playPre();
+		// 	});
+		// 	$bullet.find('li').on('click', function(){
+		// 		var idx = $(this).index();
+		// 		play(idx);
+		// 	});
+
+		// 	play(0);
+		// 	autoPlay();
+
+
+
+
+		// 	function playNext(){
+		// 		play((curIdx+1)%imgCount)
+		// 	}
+
+		// 	function playPre(){
+		// 		play((imgCount+curIdx-1)%imgCount)
+		// 	}
+		// 	function play(idx){
+		// 		if(isAnimate) return;
+		// 		isAnimate = true;
+		// 		$items.eq(curIdx).fadeOut(500);
+		// 		$items.eq(idx).fadeIn(500, function(){
+		// 			isAnimate = false;
+		// 		});
+				
+		// 		curIdx = idx;
+		// 		setBullet();
+		// 	}
+
+		// 	function setBullet(){
+		// 		$bullet.children().removeClass('active')
+		// 						  .eq(curIdx).addClass('active');
+		// 	}
+		// 	function stopAuto(){
+		// 		clearInterval(clock);
+		// 	}
+
+		// 	function autoPlay(){
+		// 		clock = setInterval(function(){
+		// 			playNext();
+		// 		}, 2000);	
+		// 	}
+
+
+		// //});
+		
+	
+         
+  //   	function setButton(){
+  //   		$imgBotton.removeClass('active').eq(index).addClass('active');
+  //   	}
+        
+    	
+    </script>
+</body>
+</html>
