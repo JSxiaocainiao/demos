@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>lazingLoad jsonp waterfall</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<style type="text/css">
+* {
+	padding: 0;
+	margin: 0;
+}
+.wrap {
+	width: 900px;
+	margin: 0 auto;
+}
+.clearfix::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+ul {
+	list-style: none;
+	position: relative;
+}
+li {
+	position: absolute;
+	width: 200px;
+	height: auto;
+	margin: 10px;
+	padding: 10px;
+    left: 250px;
+	border : 1px solid #ccc;
+	transition: all .8s;
+}
+li img {
+	width: 200px;
+}
+li h3 {
+	border-bottom: 1px solid;
+	margin:  10px 0;
+	font-size: 16px;
+}
+li p {
+	color: #ccc;
+	font-size: 14px;
+}
+li.item {
+	display: none;
+}
+div.onScreen {
+	opacity: 0;
+}
+</style>
+	
+</style>
+<body>
+	<div class="wrap">
+		<ul class="layout clearfix">
+			
+			<li class="item"></li>  <!-- 用于计算宽高不显示   -->
+		</ul>
+		<div class="onScreen">我是看不到的</div>
+	</div>
+	<script src="https://apps.bdimg.com/libs/jquery/2.1.1/jquery.js"></script>
+	<script>
+		// 获得数据
+		// 拼接数据到界面，用瀑布流布局
+		// 滚动屏幕 ，重复第一部
+		
+		var num = 20;
+		    page = 1;
+		    imgArr = [];
+		    imgWidth = $('li').outerWidth(true);
+		var imgLen = parseInt($('.layout').width() / imgWidth);
+		for(var i=0;i<imgLen;i++){
+				imgArr[i] = 0;
+			}
+		//	console.log(imgLen)
+
+        getData(function(data){
+        	callback(data);
+        })		
+      	$(window).on('scroll',function(){
+      		if(isVisibi()){
+      		getData(function(data){
+        	callback(data);
+        })	
+      	} })
+  //     	$(window).resize(function(){
+  //     		imgLen = parseInt($('.layout').width() / imgWidth);
+		// for(var i=0;i<imgLen;i++){
+		// 		imgArr[i] = 0;
+		// 	}
+  //     		$('li').each(waterfall)
+        	
+        
+  //     	})
+      	function callback(data){
+      		$(data).each(function(index,news){
+        		var node = appendHtml(news);		
+        		node.find('img').load(function(){     			
+        			$('.layout').append(node);
+      					waterfall(node);	
+      				
+        					//这里注意因为img没加载完，不知道宽高，所以要等img 加载完
+            		})
+            
+        	})
+        }	
+      	
+        function isVisibi(){
+        	var div = $('.onScreen');
+        	var divHeight = div.offset().top;
+        	var screenHeight = $(window).height();
+        	var scrollHeight = $(window).scrollTop();
+        	if(divHeight < scrollHeight+screenHeight && divHeight>scrollHeight){
+        		return true;
+        	}
+        }
+
+
+            		
+
+		function getData(callback){
+		$.ajax({
+			url: 'http://platform.sina.com.cn/slide/album_tech',
+			type: 'Get',
+			dataType:'jsonp',
+			jsonp: 'jsoncallback',
+			data: {
+				app_key:'1271687855',
+				num: num,
+				page: page
+			}
+			}).done(function(ret){
+				if( ret.status && ret.status.code == 0){
+				callback(ret.data);
+				page ++;
+			}			
+			})
+		}
+
+		 function waterfall(news){
+				var minValue = Math.min.apply(null,imgArr);
+				var minIndex = imgArr.indexOf(minValue);
+				console.log(minIndex);
+				$(news).css('left','100px')
+			    $(news).css(
+                   {
+                   	top: imgArr[minIndex] ,
+                   	left: imgWidth * minIndex
+                   });
+                imgArr[minIndex] += $(news).outerHeight(true);
+              //  console.log($(news).find('img').height());
+                $('.layout').height(Math.max.apply(null,imgArr))
+				
+
+			}
+			function appendHtml(data){
+				var html = '';
+				html += '<li><a href="'+data.url+'">';
+				html += '<img src="'+data.img_url+'"></a>';
+				html += '<h3>'+data.short_name+'</h3>';
+				html += '<p>'+data.short_intro+'</p></li>';
+				//console.log($(html).height());
+				return $(html); 
+			}
+
+	</script>
+
+
+</body>
+</html>
